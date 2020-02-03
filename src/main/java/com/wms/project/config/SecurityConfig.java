@@ -9,12 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Bean
-//    public JwtFilter jwtFilter(){
-//        return new JwtFilter();
-//    }
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();

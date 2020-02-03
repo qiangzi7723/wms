@@ -1,11 +1,10 @@
 package com.wms.project.common.util;
 
-
 import lombok.*;
 
 @Data
 public class CustomException extends RuntimeException{
-
+    private ErrorCode errorCode;
     private Integer code;
     private String msg;
 
@@ -19,5 +18,11 @@ public class CustomException extends RuntimeException{
         super();
         this.code = code;
         this.msg = msg;
+    }
+
+    public CustomException(ErrorCode errorCode) {
+        super();
+        this.code = errorCode.code;
+        this.msg = errorCode.msg;
     }
 }

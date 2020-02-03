@@ -18,7 +18,7 @@ public class Result {
         this.code = 0;
     }
 
-    public Result(String message,Integer code){
+    public Result(Integer code,String message){
         this.message = message;
         this.code = code;
     }

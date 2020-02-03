@@ -18,9 +18,14 @@ public class BootController {
 
 //    当前接口需要JWT
     @GetMapping("needJwt")
-    public ResponseEntity<Result> needJwt() throws Exception {
+    public ResponseEntity<Result> needJwt(){
         Result res = new Result();
         return ResponseEntity.ok(res);
     }
 
+    @GetMapping("noJwt")
+    public ResponseEntity<Result> noJwt(){
+        Result res = new Result();
+        return ResponseEntity.ok(res);
+    }
 }

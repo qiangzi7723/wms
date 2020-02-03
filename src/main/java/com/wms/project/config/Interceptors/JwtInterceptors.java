@@ -1,6 +1,7 @@
 package com.wms.project.config.Interceptors;
 
 import com.wms.project.common.util.CustomException;
+import com.wms.project.common.util.ErrorCode;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,15 +37,16 @@ public class JwtInterceptors implements HandlerInterceptor {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bear ")) {
             String token = authHeader.substring(5);
-            System.out.println("输出token信息" + token);
             try{
                 Claims claims = Jwts.parser().setSigningKey(keyBytes).parseClaimsJws(token).getBody();
                 System.out.println(claims);
             }catch (Exception ex){
-                throw new CustomException(-1001,"JWT解析失败");
+//                TODO 将所有的错误信息变成枚举的写法
+                System.out.println(ErrorCode.JWT_ERROR.code);
+                throw new CustomException(ErrorCode.JWT_ERROR);
             }
         }else{
-            throw new CustomException(-1002,"没有带上JWT信息");
+            throw new CustomException(ErrorCode.NO_JWT);
         }
         return true;
     }
