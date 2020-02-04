@@ -51,33 +51,3 @@ public class JwtInterceptors implements HandlerInterceptor {
         return true;
     }
 }
-
-
-
-
-
-
-//
-//public class JwtFilter extends OncePerRequestFilter {
-//
-//
-//
-//    @Override
-//    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-//        System.out.println("走到过滤器了");
-//        if (authHeader != null && authHeader.startsWith("Bear ")) {
-////             说明有token头信息
-//            String token = authHeader.substring(5);
-//            System.out.println("输出token信息" + token);
-//            try{
-//                Claims claims = Jwts.parser().setSigningKey(keyBytes).parseClaimsJws(token).getBody();
-//                System.out.println(claims);
-//            }    catch (Exception ex){
-//                throw ex;
-//            }
-//        }
-//
-//        filterChain.doFilter(httpServletRequest, httpServletResponse);
-//
-//    }
-//}
